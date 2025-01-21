@@ -1,10 +1,10 @@
 const products = [
   {
     id: 1,
-    title: "Akun COC 01",
+    title: "TownHall 12 (Semi Max C)",
     description: "Deskripsi lengkap Akun COC 01.",
-    price: "Rp 1.000.000",
-    status: "Ready",
+    price: "Rp 210.000",
+    status: "Ready ✔",
     thumbnail: "akuncoc55.jpg",
     images: ["akuncoc55.jpg", "akuncoc55.jpg"],
   },
@@ -29,7 +29,7 @@ products.forEach((product) => {
     <img src="${product.thumbnail}" alt="${product.title}">
     <div class="card-content">
       <div class="card-title">${product.title}</div>
-      <div class="card-description">Status: ${product.status}</div>
+      <div class="card-description">${product.status}</div>
       <div class="card-price">${product.price}</div>
     </div>
   `;
