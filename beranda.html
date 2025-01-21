@@ -3,71 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card List dan YouTube</title>
-  <link rel="stylesheet" href="style.css"> <!-- Pastikan style.css sesuai main.html -->
+  <title>Card List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Header</h1>
-  </header>
+  <header>HEADER</header>
 
   <main>
-    <!-- Card List -->
-    <div class="container">
-      <div class="card">
-        <a href="main.html">
-          <img src="gambar.jpg" alt="Free Fire">
-          <h3>Free Fire</h3>
-        </a>
+    <div class="product-list">
+      <!-- Card 1 -->
+      <div class="card" onclick="window.location.href='main.html'">
+        <img src="gambar.jpg" alt="Free Fire">
+        <div class="card-content">
+          <div class="card-title">Free Fire</div>
+        </div>
       </div>
-      <div class="card">
-        <a href="another.html">
-          <img src="gambar2.jpg" alt="PUBG">
-          <h3>PUBG</h3>
-        </a>
+
+      <!-- Card 2 -->
+      <div class="card" onclick="window.location.href='page2.html'">
+        <img src="gambar2.jpg" alt="Mobile Legends">
+        <div class="card-content">
+          <div class="card-title">Mobile Legends</div>
+        </div>
       </div>
-      <div class="card">
-        <a href="next.html">
-          <img src="gambar3.jpg" alt="Mobile Legends">
-          <h3>Mobile Legends</h3>
-        </a>
+
+      <!-- Card 3 -->
+      <div class="card" onclick="window.location.href='page3.html'">
+        <img src="gambar3.jpg" alt="PUBG">
+        <div class="card-content">
+          <div class="card-title">PUBG</div>
+        </div>
       </div>
-      <div class="card">
-        <a href="example.html">
-          <img src="gambar4.jpg" alt="Genshin Impact">
-          <h3>Genshin Impact</h3>
-        </a>
+
+      <!-- Card 4 -->
+      <div class="card" onclick="window.location.href='page4.html'">
+        <img src="gambar4.jpg" alt="Genshin Impact">
+        <div class="card-content">
+          <div class="card-title">Genshin Impact</div>
+        </div>
       </div>
     </div>
 
-    <!-- YouTube Section -->
-    <div class="youtube-container">
-      <h2>Video YouTube</h2>
-      <div class="youtube-buttons">
-        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">Video 1</button>
-        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/xvFZjo5PgG0')">Video 2</button>
-        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/oHg5SJYRHA0')">Video 3</button>
-        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/tgbNymZ7vqY')">Video 4</button>
+    <!-- Video List -->
+    <div id="video-section" style="margin-top: 2rem;">
+      <div class="product-list">
+        <!-- Video 1 -->
+        <button class="btn" onclick="showVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">Video 1</button>
+        <!-- Video 2 -->
+        <button class="btn" onclick="showVideo('https://www.youtube.com/embed/3JZ_D3ELwOQ')">Video 2</button>
+        <!-- Video 3 -->
+        <button class="btn" onclick="showVideo('https://www.youtube.com/embed/2Vv-BfVoq4g')">Video 3</button>
+        <!-- Video 4 -->
+        <button class="btn" onclick="showVideo('https://www.youtube.com/embed/L_jWHffIx5E')">Video 4</button>
       </div>
 
-      <!-- Video Display -->
-      <div class="video-display" id="videoDisplay" style="display: none; margin-top: 1rem;">
-        <iframe id="youtubeFrame" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <div id="video-display" style="margin-top: 1rem; text-align: center;"></div>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 MHVC Shop, all rights reserved</p>
+    <div class="footer-links">
+      <a href="https://youtube.com" target="_blank">
+        <i class="bi bi-youtube" aria-hidden="true"></i> MH VCreator
+      </a>
+      <a href="https://wa.me/1234567890" target="_blank">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> 0882-0061-60196
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <i class="bi bi-instagram" aria-hidden="true"></i> mhvcshop
+      </a>
+      <a href="https://maps.google.com" target="_blank">
+        <i class="bi bi-geo-alt" aria-hidden="true"></i> Purworejo
+      </a>
+    </div>
+    <div style="font-size: 0.4rem;">
+      © 2025 MHVC Shop, all rights reserved
+    </div>
   </footer>
 
   <script>
-    // Menampilkan video YouTube
     function showVideo(url) {
-      const videoFrame = document.getElementById('youtubeFrame');
-      const videoDisplay = document.getElementById('videoDisplay');
-      videoFrame.src = url;
-      videoDisplay.style.display = 'block';
+      document.getElementById('video-display').innerHTML = `
+        <iframe width="560" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>
+      `;
     }
   </script>
 </body>
