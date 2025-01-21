@@ -19,34 +19,38 @@ header {
   color: white;
 }
 
+/*███████████████ FOOTER ███████████████*/
 footer {
-  background-color: #9C28B1; /* Warna ungu */
+  background-color: #9C28B1;
   color: white;
+  padding: 1.5rem 1rem;
   text-align: center;
-  padding: 1rem;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 2rem; /* Jarak antar link */
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .footer-links a {
   text-decoration: none;
-  color: white; /* Warna teks */
+  color: white;
   font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Jarak antara ikon dan teks */
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #9F59F0; /* Warna teks saat hover */
+  color: #E5B5FF; /* Warna teks saat hover */
 }
 
-.footer-copyright {
-  font-size: 0.8rem; /* Ukuran lebih kecil */
-  margin-top: 0.5rem;
+.footer-links i {
+  font-size: 1.5rem; /* Ukuran ikon */
 }
 
 /*███████████████ STYLE LIST PRODUK ███████████████*/
