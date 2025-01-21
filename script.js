@@ -6,7 +6,7 @@ const products = [
     price: "Rp 1.000.000",
     status: "Ready",
     thumbnail: "akuncoc55.jpg",
-    images: ["https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png", "https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png"],
+    images: ["akuncoc55.jpg", "https://via.placeholder.com/150"],
   },
   {
     id: 2,
@@ -14,34 +14,15 @@ const products = [
     description: "Deskripsi lengkap Akun COC 02.",
     price: "Rp 850.000",
     status: "Habis",
-    thumbnail: "link-thumbnail-2.jpg",
-    images: ["link-image-2a.jpg", "link-image-2b.jpg"],
+    thumbnail: "https://via.placeholder.com/150",
+    images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
   },
-    {
-    id: 3,
-    title: "Akun COC 03",
-    description: "Deskripsi lengkap Akun COC 02.",
-    price: "Rp 850.000",
-    status: "Habis",
-    thumbnail: "link-thumbnail-2.jpg",
-    images: ["link-image-2a.jpg", "link-image-2b.jpg"],
-  },
-    {
-    id: 4,
-    title: "Akun COC 04",
-    description: "Deskripsi lengkap Akun COC 02.",
-    price: "Rp 850.000",
-    status: "Habis",
-    thumbnail: "link-thumbnail-2.jpg",
-    images: ["link-image-2a.jpg", "link-image-2b.jpg"],
-  },
-  // Tambahkan data lainnya
 ];
 
 const productList = document.getElementById("product-list");
 
-// Render daftar produk
-products.forEach(product => {
+// Render list produk
+products.forEach((product) => {
   const productCard = document.createElement("div");
   productCard.classList.add("card");
   productCard.innerHTML = `
@@ -56,22 +37,27 @@ products.forEach(product => {
   productList.appendChild(productCard);
 });
 
-// Fungsi membuka detail produk
+// Fungsi untuk membuka detail produk
 function openProductDetails(product) {
   const detailContainer = document.createElement("div");
   detailContainer.classList.add("product-details");
   detailContainer.innerHTML = `
+    <button class="close" onclick="closeProductDetails()">×</button>
     <img src="${product.images[0]}" alt="${product.title}">
-    <div class="content">
-      <h2>${product.title}</h2>
-      <p>${product.description}</p>
-      <p>Status: ${product.status}</p>
-      <p>Harga: ${product.price}</p>
-      <div class="buttons">
-        <button onclick="location.href='#'">Chat Penjual</button>
-        <button onclick="location.href='#'">Beli Sekarang</button>
-      </div>
+    <h2>${product.title}</h2>
+    <p>Status: ${product.status}</p>
+    <p>Harga: ${product.price}</p>
+    <p>${product.description}</p>
+    <div class="buttons">
+      <button>Chat Penjual</button>
+      <button>Beli Sekarang</button>
     </div>
   `;
   document.body.appendChild(detailContainer);
+  detailContainer.style.display = "block";
+}
+
+// Fungsi untuk menutup detail produk
+function closeProductDetails() {
+  document.querySelector(".product-details").remove();
 }
