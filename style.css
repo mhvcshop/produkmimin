@@ -24,7 +24,7 @@ header, footer {
   display: grid;
   gap: 1.5rem;
   padding: 2rem;
-  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for mobile */
+  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns */
 }
 
 .card {
@@ -34,6 +34,8 @@ header, footer {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
+  display: flex; /* Menjadikan konten fleksibel */
+  align-items: center;
 }
 
 .card:hover {
@@ -41,14 +43,16 @@ header, footer {
 }
 
 .card img {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Ensure images are 1:1 */
+  width: 30%; /* Ukuran gambar lebih kecil */
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  margin-right: 1rem; /* Jarak antara gambar dan konten teks */
 }
 
 .card-content {
-  padding: 1rem;
-  text-align: center;
+  text-align: left; /* Teks rata kiri */
+  flex-grow: 1; /* Konten teks mengisi ruang tersisa */
 }
 
 .card-title {
@@ -67,9 +71,24 @@ header, footer {
   font-weight: bold;
 }
 
-/* Tablet and Desktop View */
+/* Perbesar kontainer di tampilan mobile */
+@media (max-width: 768px) {
+  .product-list {
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card img {
+    width: 40%;
+  }
+}
+
+/* Tablet dan Desktop View */
 @media (min-width: 768px) {
   .product-list {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet and desktop */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
   }
 }
