@@ -23,6 +23,7 @@ main {
 header {
   background-image: url('header-background.jpg');
   background-size: cover;
+  height: 5rem;
   text-align: center;
   padding: 1rem;
   background-color: #9C28B1;
