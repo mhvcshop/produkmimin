@@ -14,8 +14,8 @@ const products = [
     description: "Deskripsi lengkap Akun COC 02.",
     price: "Rp 850.000",
     status: "Habis",
-    thumbnail: "https://via.placeholder.com/150",
-    images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
+    thumbnail: "akuncoc55.jpg",
+    images: ["akuncoc55.jpg", "akuncoc55.jpg"],
   },
 ];
 
