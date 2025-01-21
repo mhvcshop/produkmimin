@@ -30,7 +30,7 @@ header, footer {
 /*███████████████ KONTAINER ███████████████*/
 .card {
   background: white;
-  border-radius: 0.6rem;
+  border-radius: 0.3rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
@@ -73,8 +73,29 @@ header, footer {
 
 /*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
+  .card {
+  background: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+  }
+  
   .product-list {
     grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet and desktop */
+  }
+
+  .card-title {
+  font-size: 1.2rem;
+  }
+
+  .card-description {
+  font-size: 0.9rem;
+  }
+
+  .card-price {
+  font-size: 1rem;
   }
 }
 
