@@ -24,7 +24,7 @@ header, footer {
   display: grid;
   gap: 1.5rem;
   padding: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Default for mobile */
+  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for mobile */
 }
 
 .card {
@@ -42,7 +42,7 @@ header, footer {
 
 .card img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Ensure 1:1 ratio for images */
+  aspect-ratio: 1 / 1; /* Ensure images are 1:1 */
   object-fit: cover;
 }
 
@@ -67,9 +67,9 @@ header, footer {
   font-weight: bold;
 }
 
-/* Desktop View */
+/* Tablet and Desktop View */
 @media (min-width: 768px) {
   .product-list {
-    grid-template-columns: repeat(4, 1fr); /* Always 4 columns for tablet and desktop */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet and desktop */
   }
 }
