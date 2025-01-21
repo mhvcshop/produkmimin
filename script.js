@@ -5,8 +5,8 @@ const products = [
     description: "Deskripsi lengkap Akun COC 01.",
     price: "Rp 1.000.000",
     status: "Ready",
-    thumbnail: "akuncoc55.jpg",
-    images: ["akuncoc55.jpg", "akuncoc55.jpg"],
+    thumbnail: "https://via.placeholder.com/150",
+    images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
   },
   {
     id: 2,
@@ -14,8 +14,8 @@ const products = [
     description: "Deskripsi lengkap Akun COC 02.",
     price: "Rp 850.000",
     status: "Habis",
-    thumbnail: "akuncoc55.jpg",
-    images: ["akuncoc55.jpg", "akuncoc55.jpg"],
+    thumbnail: "https://via.placeholder.com/150",
+    images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
   },
 ];
 
@@ -33,8 +33,15 @@ products.forEach((product) => {
       <div class="card-price">${product.price}</div>
     </div>
   `;
-  productCard.addEventListener("click", () => {
-    window.location.href = infoakun.html?id=${product.id}; // Berpindah ke halaman infoakun.html
-  });
+  productCard.addEventListener("click", () => openProductDetails(product));
   productList.appendChild(productCard);
 });
+
+// Fungsi untuk membuka detail produk
+function openProductDetails(product) {
+  // Simpan data produk ke localStorage
+  localStorage.setItem('selectedProduct', JSON.stringify(product));
+
+  // Alihkan ke halaman infoakun.html
+  window.location.href = "infoakun.html";
+}
