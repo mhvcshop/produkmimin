@@ -24,7 +24,7 @@ header, footer {
   display: grid;
   gap: 1.5rem;
   padding: 2rem;
-  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns */
+  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for mobile */
 }
 
 .card {
@@ -34,8 +34,6 @@ header, footer {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
-  display: flex; /* Menjadikan konten fleksibel */
-  align-items: center;
 }
 
 .card:hover {
@@ -43,16 +41,14 @@ header, footer {
 }
 
 .card img {
-  width: 30%; /* Ukuran gambar lebih kecil */
-  height: auto;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Ensure images are 1:1 */
   object-fit: cover;
-  margin-right: 1rem; /* Jarak antara gambar dan konten teks */
 }
 
 .card-content {
-  text-align: left; /* Teks rata kiri */
-  flex-grow: 1; /* Konten teks mengisi ruang tersisa */
+  padding: 1rem;
+  text-align: center;
 }
 
 .card-title {
@@ -71,24 +67,59 @@ header, footer {
   font-weight: bold;
 }
 
-/* Perbesar kontainer di tampilan mobile */
-@media (max-width: 768px) {
+/* Tablet and Desktop View */
+@media (min-width: 768px) {
   .product-list {
-    gap: 2rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .card img {
-    width: 40%;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet and desktop */
   }
 }
 
-/* Tablet dan Desktop View */
-@media (min-width: 768px) {
-  .product-list {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  }
+/* Styles for infoakun.html */
+.account-info {
+  padding: 2rem;
+  text-align: center;
+  background: white;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.account-info img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.account-info h2 {
+  color: #9C28B1;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.account-info p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  background-color: #9C28B1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #9F59F0;
 }
