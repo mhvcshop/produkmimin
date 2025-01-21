@@ -11,7 +11,7 @@ const products = [
   {
     id: 2,
     title: "TownHall 11 (Max)",
-    description: "Deskripsi lengkap Akun COC 02.",
+    description: "Login : SC ID <br> Gems : 1000",
     price: "Rp 170.000",
     status: "Ready ✔",
     thumbnail: "akun55-1.png",
