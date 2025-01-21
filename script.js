@@ -17,6 +17,33 @@ const products = [
     thumbnail: "akun55-1.png",
     images: ["akun55-1.png", "akun55-2.png", "akun55-3.png"],
   },
+    {
+    id: 3,
+    title: "TownHall 11 (Max)",
+    description: "Login : SC ID <br> Gems : 1000",
+    price: "Rp 170.000",
+    status: "Ready ✔",
+    thumbnail: "akun55-1.png",
+    images: ["akun55-1.png", "akun55-2.png", "akun55-3.png"],
+  },
+    {
+    id: 4,
+    title: "TownHall 11 (Max)",
+    description: "Login : SC ID <br> Gems : 1000",
+    price: "Rp 170.000",
+    status: "Ready ✔",
+    thumbnail: "akun55-1.png",
+    images: ["akun55-1.png", "akun55-2.png", "akun55-3.png"],
+  },
+    {
+    id: 5,
+    title: "TownHall 11 (Max)",
+    description: "Login : SC ID <br> Gems : 1000",
+    price: "Rp 170.000",
+    status: "Ready ✔",
+    thumbnail: "akun55-1.png",
+    images: ["akun55-1.png", "akun55-2.png", "akun55-3.png"],
+  },
 ];
 
 const productList = document.getElementById("product-list");
