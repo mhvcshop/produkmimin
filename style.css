@@ -22,9 +22,9 @@ header, footer {
 /* Main Product List */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1.5rem;
   padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Default for mobile */
 }
 
 .card {
@@ -42,7 +42,7 @@ header, footer {
 
 .card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* Ensure 1:1 ratio for images */
   object-fit: cover;
 }
 
@@ -67,57 +67,9 @@ header, footer {
   font-weight: bold;
 }
 
-/* Product Details */
-.product-details {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  overflow-y: auto;
-  z-index: 1000;
-  padding: 1rem;
-  display: none;
-}
-
-.product-details img {
-  width: 100%;
-  object-fit: contain;
-}
-
-.product-details h2 {
-  color: #9C28B1;
-  margin: 1rem 0;
-}
-
-.product-details .buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.product-details .buttons button {
-  flex: 1;
-  padding: 0.5rem 1rem;
-  background-color: #9C28B1;
-  color: white;
-  border: none;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.product-details .buttons button:hover {
-  background-color: #9F59F0;
-}
-
-.product-details .close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+/* Desktop View */
+@media (min-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns for tablet and desktop */
+  }
 }
