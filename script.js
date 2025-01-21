@@ -1,3 +1,4 @@
+console.log(products);
 const products = [
   {
     id: 1,
