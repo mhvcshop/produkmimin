@@ -30,7 +30,7 @@ footer {
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 1rem; /* Jarak antar link */
+  gap: 0.8rem; /* Jarak antar link */
   margin-bottom: 0.6rem;
 }
 
