@@ -22,7 +22,7 @@ header, footer {
 /*███████████████ STYLE LIST PRODUK ███████████████*/
 .product-list {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.2rem;
   padding: 2rem;
   grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for mobile */
 }
