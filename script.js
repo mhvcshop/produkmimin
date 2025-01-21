@@ -5,8 +5,8 @@ const products = [
     description: "Deskripsi lengkap Akun COC 01.",
     price: "Rp 1.000.000",
     status: "Ready",
-    thumbnail: "https://www.instagram.com/mhvcshop/p/C_GEgxvyBOv/",
-    images: ["link-image-1a.jpg", "link-image-1b.jpg", "link-image-1c.jpg"],
+    thumbnail: "https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png",
+    images: ["https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png", "https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png"],
   },
   {
     id: 2,
