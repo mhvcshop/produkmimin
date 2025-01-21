@@ -38,7 +38,7 @@ footer {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   display: flex;
   align-items: center;
   gap: 0.4rem; /* Jarak antara ikon dan teks */
@@ -50,7 +50,7 @@ footer {
 }
 
 .footer-links i {
-  font-size: 0.7rem; /* Ukuran ikon */
+  font-size: 0.6rem; /* Ukuran ikon */
 }
 
 /*███████████████ STYLE LIST PRODUK ███████████████*/
