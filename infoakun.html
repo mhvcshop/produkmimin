@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Akun</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Detail Akun</header>
+
+  <main>
+    <div id="product-details" class="product-details"></div>
+  </main>
+
+  <footer>FOOTER</footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const products = [
+      {
+        id: 1,
+        title: "Akun COC 01",
+        description: "Deskripsi lengkap Akun COC 01.",
+        price: "Rp 1.000.000",
+        status: "Ready",
+        thumbnail: "https://via.placeholder.com/150",
+        images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
+      },
+      {
+        id: 2,
+        title: "Akun COC 02",
+        description: "Deskripsi lengkap Akun COC 02.",
+        price: "Rp 850.000",
+        status: "Habis",
+        thumbnail: "https://via.placeholder.com/150",
+        images: ["https://via.placeholder.com/150", "https://via.placeholder.com/150"],
+      },
+    ];
+
+    const product = products.find(p => p.id == productId);
+
+    const productDetails = document.getElementById("product-details");
+    if (product) {
+      productDetails.innerHTML = `
+        <img src="${product.images[0]}" alt="${product.title}">
+        <h2>${product.title}</h2>
+        <p>Status: ${product.status}</p>
+        <p>Harga: ${product.price}</p>
+        <p>${product.description}</p>
+        <div class="buttons">
+          <button>Chat Penjual</button>
+          <button>Beli Sekarang</button>
+        </div>
+      `;
+    } else {
+      productDetails.innerHTML = <p>Produk tidak ditemukan.</p>;
+    }
+  </script>
+</body>
+</html>
