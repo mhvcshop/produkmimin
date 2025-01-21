@@ -120,9 +120,13 @@ footer {
 
 /*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
+  header {
+    height: 20rem;
+  }
+  
   footer {
   padding: 1.5rem 1rem;
-}
+  }
 
 .footer-links {
   gap: 2rem;
