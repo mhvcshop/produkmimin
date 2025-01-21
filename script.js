@@ -5,7 +5,7 @@ const products = [
     description: "Deskripsi lengkap Akun COC 01.",
     price: "Rp 1.000.000",
     status: "Ready",
-    thumbnail: "link-thumbnail-1.jpg",
+    thumbnail: "https://www.instagram.com/mhvcshop/p/C_GEgxvyBOv/",
     images: ["link-image-1a.jpg", "link-image-1b.jpg", "link-image-1c.jpg"],
   },
   {
