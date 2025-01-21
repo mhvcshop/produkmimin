@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card List dan YouTube</title>
+  <link rel="stylesheet" href="style.css"> <!-- Pastikan style.css sesuai main.html -->
+</head>
+<body>
+  <header>
+    <h1>Header</h1>
+  </header>
+
+  <main>
+    <!-- Card List -->
+    <div class="container">
+      <div class="card">
+        <a href="main.html">
+          <img src="gambar.jpg" alt="Free Fire">
+          <h3>Free Fire</h3>
+        </a>
+      </div>
+      <div class="card">
+        <a href="another.html">
+          <img src="gambar2.jpg" alt="PUBG">
+          <h3>PUBG</h3>
+        </a>
+      </div>
+      <div class="card">
+        <a href="next.html">
+          <img src="gambar3.jpg" alt="Mobile Legends">
+          <h3>Mobile Legends</h3>
+        </a>
+      </div>
+      <div class="card">
+        <a href="example.html">
+          <img src="gambar4.jpg" alt="Genshin Impact">
+          <h3>Genshin Impact</h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- YouTube Section -->
+    <div class="youtube-container">
+      <h2>Video YouTube</h2>
+      <div class="youtube-buttons">
+        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">Video 1</button>
+        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/xvFZjo5PgG0')">Video 2</button>
+        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/oHg5SJYRHA0')">Video 3</button>
+        <button class="btn-beli" onclick="showVideo('https://www.youtube.com/embed/tgbNymZ7vqY')">Video 4</button>
+      </div>
+
+      <!-- Video Display -->
+      <div class="video-display" id="videoDisplay" style="display: none; margin-top: 1rem;">
+        <iframe id="youtubeFrame" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 MHVC Shop, all rights reserved</p>
+  </footer>
+
+  <script>
+    // Menampilkan video YouTube
+    function showVideo(url) {
+      const videoFrame = document.getElementById('youtubeFrame');
+      const videoDisplay = document.getElementById('videoDisplay');
+      videoFrame.src = url;
+      videoDisplay.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
