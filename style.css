@@ -98,7 +98,7 @@ footer {
 .card-title {
   font-size: 0.8rem;
   font-weight: bold;
-  color: #9C28B1;
+  color: black;
   margin-bottom: 0.5rem;
 }
 
@@ -110,7 +110,7 @@ footer {
 
 .card-price {
   font-size: 0.75rem;
-  color: #9F59F0;
+  color: #9C28B1;
   font-weight: bold;
 }
 
