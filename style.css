@@ -30,7 +30,7 @@ footer {
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 0.8rem; /* Jarak antar link */
+  gap: 0.6rem; /* Jarak antar link */
   margin-bottom: 0.6rem;
 }
 
@@ -41,7 +41,7 @@ footer {
   font-size: 0.7rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Jarak antara ikon dan teks */
+  gap: 0.4rem; /* Jarak antara ikon dan teks */
   transition: color 0.3s ease;
 }
 
