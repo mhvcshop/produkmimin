@@ -5,7 +5,7 @@ const products = [
     description: "Deskripsi lengkap Akun COC 01.",
     price: "Rp 1.000.000",
     status: "Ready",
-    thumbnail: "https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png",
+    thumbnail: "akuncoc55.jpg",
     images: ["https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png", "https://i.postimg.cc/Pf35CXK2/Salinan-dari-S3-Banner-COC-20241121-204305-0000.png"],
   },
   {
