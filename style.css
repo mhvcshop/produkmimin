@@ -1,4 +1,4 @@
-/* Reset */
+/*███████████████ STYLE UTAMA ███████████████*/
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   color: #333;
 }
 
-/* Header & Footer */
+/*███████████████ HEADER FOOTER ███████████████*/
 header, footer {
   text-align: center;
   padding: 1rem;
@@ -19,7 +19,7 @@ header, footer {
   color: white;
 }
 
-/* Main Product List */
+/*███████████████ STYLE LIST PRODUK ███████████████*/
 .product-list {
   display: grid;
   gap: 1.5rem;
@@ -27,9 +27,10 @@ header, footer {
   grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for mobile */
 }
 
+/*███████████████ KONTAINER ███████████████*/
 .card {
   background: white;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
@@ -46,36 +47,38 @@ header, footer {
   object-fit: cover;
 }
 
+/*███████████████ STYLE KONTEN DALAM KONTAINER ███████████████*/
 .card-content {
   padding: 1rem;
-  text-align: center;
+  text-align: left;
 }
-
+/*███████████████ KONTEN DALAM KONTAINER BAWAAN (MOBILE) ███████████████*/
 .card-title {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: bold;
   color: #9C28B1;
   margin-bottom: 0.5rem;
 }
 
 .card-description {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   margin-bottom: 0.5rem;
 }
 
 .card-price {
+  font-size: 0.75rem;
   color: #9F59F0;
   font-weight: bold;
 }
 
-/* Tablet and Desktop View */
+/*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
   .product-list {
     grid-template-columns: repeat(4, 1fr); /* 4 columns for tablet and desktop */
   }
 }
 
-/* Styles for infoakun.html */
+/*███████████████ STYLE INFO AKUN ███████████████*/
 .account-info {
   padding: 2rem;
   text-align: center;
