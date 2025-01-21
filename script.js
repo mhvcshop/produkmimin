@@ -17,6 +17,24 @@ const products = [
     thumbnail: "link-thumbnail-2.jpg",
     images: ["link-image-2a.jpg", "link-image-2b.jpg"],
   },
+    {
+    id: 3,
+    title: "Akun COC 03",
+    description: "Deskripsi lengkap Akun COC 02.",
+    price: "Rp 850.000",
+    status: "Habis",
+    thumbnail: "link-thumbnail-2.jpg",
+    images: ["link-image-2a.jpg", "link-image-2b.jpg"],
+  },
+    {
+    id: 4,
+    title: "Akun COC 04",
+    description: "Deskripsi lengkap Akun COC 02.",
+    price: "Rp 850.000",
+    status: "Habis",
+    thumbnail: "link-thumbnail-2.jpg",
+    images: ["link-image-2a.jpg", "link-image-2b.jpg"],
+  },
   // Tambahkan data lainnya
 ];
 
