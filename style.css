@@ -1,0 +1,130 @@
+:root {
+  --purple-dark: #9C28B1;
+  --purple-light: #9F59F0;
+  --white: #FFFFFF;
+  --black: #000000;
+  --font-size-base: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: var(--font-size-base);
+}
+
+.header, .footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--purple-dark);
+  color: var(--white);
+}
+
+main {
+  padding: 2rem 5%;
+}
+
+.container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+}
+
+.card {
+  border: 0.1rem solid var(--purple-light);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--purple-dark);
+}
+
+.card-price {
+  color: var(--purple-light);
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--black);
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
+  }
+}
+
+.product-details {
+  display: none;
+  padding: 2rem;
+  background-color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.product-details img {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+}
+
+.product-details .content {
+  padding: 1rem;
+}
+
+.product-details .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.product-details .buttons button {
+  flex: 1;
+  padding: 0.8rem;
+  margin: 0 0.5rem;
+  background-color: var(--purple-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.product-details .buttons button:hover {
+  background-color: var(--purple-light);
+}
