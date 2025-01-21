@@ -21,6 +21,8 @@ main {
 
 /*███████████████ HEADER FOOTER ███████████████*/
 header {
+  background-image: url('header-background.jpg');
+  background-size: cover;
   text-align: center;
   padding: 1rem;
   background-color: #9C28B1;
