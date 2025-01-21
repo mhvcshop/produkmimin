@@ -30,6 +30,7 @@ header, footer {
 /*███████████████ KONTAINER ███████████████*/
 .card {
   background: white;
+  width: 3rem;
   border-radius: 0.3rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
