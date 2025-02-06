@@ -21,63 +21,69 @@
 
   <footer>FOOTER</footer>
 
-  <script>
-    // Auto href ke beranda.html
-    if (!sessionStorage.getItem("akses_diperbolehkan")) {
-      window.location.href = "beranda.html";
+<script>
+  // Auto href ke beranda.html
+  if (!sessionStorage.getItem("akses_diperbolehkan")) {
+    window.location.href = "beranda.html";
+  }
+
+  // Mengambil data produk dari localStorage
+  const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+  if (product) {
+    const accountInfo = document.getElementById('account-info');
+    let imagesHtml = "";
+
+    product.images.forEach((img, index) => {
+      imagesHtml += <img src="${img}" alt="${product.title}" class="product-image" style="${index === 0 ? 'display:block;' : 'display:none;'}">;
+    });
+
+    accountInfo.innerHTML = `
+      <div class="image-container">
+        ${imagesHtml}
+      </div>
+      <h2>${product.title}</h2>
+      <p>Status: ${product.status}</p><br>
+      <h3>${product.price}</h3><br><br><br>
+      <p><strong>Garansi (Direct)</strong></p>
+      <p>🟣 Bebas Dari HackBack</p>
+      <p>🟣 Jaminan Email Aman</p>
+      <p>🟣 Jaminan Akun Sesuai</p>
+      <p>🟣 Bimbingan Pengamanan</p>
+      <p>🟣 Ganti Akun Lain</p>
+      <br><p><strong>Deskripsi Produk</strong></p>
+      <p>${product.description}</p>
+    `;
+
+    let currentIndex = 0;
+    const images = document.querySelectorAll(".product-image");
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.style.display = i === index ? "block" : "none";
+      });
     }
 
-    // Mengambil data produk dari localStorage
-    const product = JSON.parse(localStorage.getItem('selectedProduct'));
-
-    if (product) {
-      let currentImageIndex = 0;
-
-      const accountInfo = document.getElementById('account-info');
-      accountInfo.innerHTML = `
-        <div class="image-container">
-          <button onclick="prevImage()" class="nav-button">❮</button>
-          <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}">
-          <button onclick="nextImage()" class="nav-button">❯</button>
-        </div>
-        <h2>${product.title}</h2>
-        <p>Status: ${product.status}</p><br>
-        <h3>${product.price}</h3><br><br><br>
-        <p><strong>Garansi (Direct)</strong></p>
-        <p>🟣 Bebas Dari HackBack</p>
-        <p>🟣 Jaminan Email Aman</p>
-        <p>🟣 Jaminan Akun Sesuai</p>
-        <p>🟣 Bimbingan Pengamanan</p>
-        <p>🟣 Ganti Akun Lain</p>
-        <br><p><strong>Deskripsi Produk</strong></p>
-        <p>${product.description}</p>
-      `;
-
-      // Fungsi untuk mengganti gambar sebelumnya
-      window.prevImage = function () {
-        if (currentImageIndex > 0) {
-          currentImageIndex--;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
-
-      // Fungsi untuk mengganti gambar berikutnya
-      window.nextImage = function () {
-        if (currentImageIndex < product.images.length - 1) {
-          currentImageIndex++;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
     }
 
-    function chatSeller() {
-      alert("Fitur chat penjual belum tersedia.");
-    }
+    // Auto-slide setiap 3 detik
+    setInterval(nextImage, 3000);
 
-    function buyNow() {
-      alert("Fitur beli sekarang belum tersedia.");
-    }
-  </script>
+    // Event click untuk manual slide
+    document.querySelector(".image-container").addEventListener("click", nextImage);
+  }
+
+  function chatSeller() {
+    alert("Fitur chat penjual belum tersedia.");
+  }
+
+  function buyNow() {
+    alert("Fitur beli sekarang belum tersedia.");
+  }
+</script>
 
   <style>
     .image-container {
