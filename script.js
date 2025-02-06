@@ -2,8 +2,8 @@ const products = [
   {
     id: 1,
     title: "TownHall 13 (Semi Max A)",
-    description: "Tes",
-    price: " ̶R̶p̶ ̶2̶6̶0̶.̶0̶0̶0̶  Rp 250.000",
+    description: "Ganti Nama    : ON (2000 Gems) <br>EXP Level    : 160 <br>Gems    : 12.220+ <br>Koin Liga    : 70+ <br>Koin Medal    : 160+",
+    price: "R̶p̶ ̶2̶6̶0̶.̶0̶0̶0̶  Rp 250.000",
     status: "Ready ✔",
     thumbnail: "images/th13 semi max a 01.jpg",
     images: ["images/th13 semi max a 01.jpg"],
