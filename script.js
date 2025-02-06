@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     title: "TownHall 13 (Semi Max A)",
-    description: "<table><tr><td>Ganti Nama</td><td>:</td><td>ON (2000 Gems)</td></tr><tr><td>EXP Level</td><td>:</td><td>160</td></tr><tr><td>Gems</td><td>:</td><td>12.220+</td></tr><tr><td>Koin Liga</td><td>:</td><td>70+</td></tr><tr><td>Koin Medal</td><td>:</td><td>160+</td></tr></table>",
+    description: "<table><tr><td>Ganti Nama</td><td>  : </td><td>ON (2000 Gems)</td></tr><tr><td>EXP Level</td><td>  : </td><td>160</td></tr><tr><td>Gems</td><td>  : </td><td>12.220+</td></tr><tr><td>Koin Liga</td><td>  : </td><td>70+</td></tr><tr><td>Koin Medal</td><td>  : </td><td>160+</td></tr></table>",
     price: "R̶p̶ ̶2̶6̶0̶.̶0̶0̶0̶  Rp 250.000",
     status: "Ready ✔",
     thumbnail: "images/th13 semi max a 01.jpg",
