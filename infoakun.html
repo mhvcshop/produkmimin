@@ -22,6 +22,10 @@
   <footer>FOOTER</footer>
 
   <script>
+    // Auto href ke beranda.html
+    if (window.location.pathname !== "/main.html") {
+      window.location.href = "/beranda.html";
+    }
     // Mengambil data produk dari localStorage
     const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
