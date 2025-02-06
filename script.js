@@ -6,7 +6,7 @@ const products = [
     price: "R̶p̶ ̶2̶6̶0̶.̶0̶0̶0̶  Rp 250.000",
     status: "Ready ✔",
     thumbnail: "images/th13 semi max a 01.jpg",
-    images: ["images/th13 semi max a 01.jpg"],
+    images: ["images/th13 semi max a 01.jpg","images/th13 semi max a 02.jpg","images/th13 semi max a 03.jpg"],
   },
   {
     id: 2,
