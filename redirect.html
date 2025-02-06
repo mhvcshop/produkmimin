@@ -1,77 +1,107 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mengalihkan...</title>
-    <style>
-        /* Reset dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mengalihkan - MHVC Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #9C28B1;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-        /* Animasi teks */
-        .text {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 1.5s forwards;
-        }
+    header {
+      background-color: #9C28B1;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4rem;
+    }
 
-        /* Animasi loading */
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top: 5px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+    footer {
+      background-color: #9C28B1;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
 
-        /* Animasi fade-in teks */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 4rem;
+    }
 
-        /* Animasi loading berputar */
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
-    <script>
-        // Redirect ke WhatsApp setelah 5 detik
-        setTimeout(function() {
-            window.location.href = "https://wa.me/"; // Ganti dengan nomor WhatsApp tujuan
-        }, 5000);
-    </script>
+    .loading-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #9C28B1;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(156, 40, 177, 0.3);
+      border-top-color: #9C28B1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header (Placeholder) -->
-    <header>Header Default</header>
+  <header>
+    <strong>Mengalihkan...</strong>
+  </header>
 
-    <!-- Konten Loading -->
-    <div class="text">Mengalihkan ke WhatsApp...</div>
-    <div class="loader"></div>
+  <main>
+    <div class="loading-container">
+      <div class="loading-text">Mengalihkan ke WhatsApp...</div>
+      <div class="spinner"></div>
+    </div>
+  </main>
 
-    <!-- Footer (Placeholder) -->
-    <footer>Footer Default</footer>
+  <footer>
+    © 2025 MHVC Shop, all rights reserved
+  </footer>
+
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://wa.me/1234567890"; // Ganti dengan nomor WhatsApp tujuan
+    }, 5000); // Redirect setelah 5 detik
+  </script>
 
 </body>
 </html>
