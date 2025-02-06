@@ -25,15 +25,21 @@
     // Auto href ke beranda.html
     if (!sessionStorage.getItem("akses_diperbolehkan")) {
       window.location.href = "beranda.html";
-    }
-    
+    }
+
     // Mengambil data produk dari localStorage
     const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
     if (product) {
+      let currentImageIndex = 0;
+
       const accountInfo = document.getElementById('account-info');
       accountInfo.innerHTML = `
-        <img src="${product.images[0]}" alt="${product.title}">
+        <div class="image-container">
+          <button onclick="prevImage()" class="nav-button">❮</button>
+          <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}">
+          <button onclick="nextImage()" class="nav-button">❯</button>
+        </div>
         <h2>${product.title}</h2>
         <p>Status: ${product.status}</p><br>
         <h3>${product.price}</h3><br><br><br>
@@ -46,6 +52,22 @@
         <br><p><strong>Deskripsi Produk</strong></p>
         <p>${product.description}</p>
       `;
+
+      // Fungsi untuk mengganti gambar sebelumnya
+      window.prevImage = function () {
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          document.getElementById('product-image').src = product.images[currentImageIndex];
+        }
+      };
+
+      // Fungsi untuk mengganti gambar berikutnya
+      window.nextImage = function () {
+        if (currentImageIndex < product.images.length - 1) {
+          currentImageIndex++;
+          document.getElementById('product-image').src = product.images[currentImageIndex];
+        }
+      };
     }
 
     function chatSeller() {
@@ -56,5 +78,46 @@
       alert("Fitur beli sekarang belum tersedia.");
     }
   </script>
+
+  <style>
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .nav-button {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-button:first-child {
+      left: 10px;
+    }
+
+    .nav-button:last-child {
+      right: 10px;
+    }
+  </style>
+
 </body>
 </html>
