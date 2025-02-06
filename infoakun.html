@@ -23,9 +23,10 @@
 
   <script>
     // Auto href ke beranda.html
-    if (window.location.pathname !== "/main.html") {
-      window.location.href = "/beranda.html";
+    if (!sessionStorage.getItem("akses_diperbolehkan")) {
+      window.location.href = "main.html";
     }
+    
     // Mengambil data produk dari localStorage
     const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
