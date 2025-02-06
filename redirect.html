@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengalihkan...</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #9C28B1;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Animasi teks */
+        .text {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        /* Animasi loading */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animasi fade-in teks */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Animasi loading berputar */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // Redirect ke WhatsApp setelah 5 detik
+        setTimeout(function() {
+            window.location.href = "https://wa.me/"; // Ganti dengan nomor WhatsApp tujuan
+        }, 5000);
+    </script>
+</head>
+<body>
+
+    <!-- Header (Placeholder) -->
+    <header>Header Default</header>
+
+    <!-- Konten Loading -->
+    <div class="text">Mengalihkan ke WhatsApp...</div>
+    <div class="loader"></div>
+
+    <!-- Footer (Placeholder) -->
+    <footer>Footer Default</footer>
+
+</body>
+</html>
