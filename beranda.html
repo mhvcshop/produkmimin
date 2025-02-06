@@ -83,6 +83,9 @@
   </footer>
 
   <script>
+    //session untuk merekam riwayat akses a href
+    sessionStorage.setItem("akses_diperbolehkan", "true");
+    //blm tau
     function showVideo(url) {
       document.getElementById('video-display').innerHTML = `
         <iframe width="560" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>
