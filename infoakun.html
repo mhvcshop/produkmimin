@@ -5,30 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Info Akun</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    .slider-container {
-      width: 100%;
-      max-width: 300px;
-      overflow: hidden;
-      position: relative;
-      margin: auto;
-    }
-
-    .slider {
+    .image-container {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: auto;
+      overflow: hidden;
     }
 
-    .slider img {
+    .image-container img {
       width: 100%;
-      flex-shrink: 0;
       max-width: 300px;
+      height: auto;
+      position: absolute;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .image-container img.fade-out {
+      animation: slideOut 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
     }
 
     .nav-button {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
@@ -67,23 +92,23 @@
   </main>
 
   <footer>
-    <div class="footer-links">
-      <a href="https://youtube.com/@mhvcreatorshort" target="_blank">
-        <i class="bi bi-youtube" aria-hidden="true"></i> MH VCreator
-      </a>
-      <a href="https://wa.me/62882006160196" target="_blank">
-        <i class="bi bi-whatsapp" aria-hidden="true"></i> 0882-0061-60196
-      </a>
-      <a href="https://www.instagram.com/mhvcshop" target="_blank">
-        <i class="bi bi-instagram" aria-hidden="true"></i> mhvcshop
-      </a>
-      <a href="https://maps.app.goo.gl/YhEH3pSSW1uLbxt37" target="_blank">
-        <i class="bi bi-geo-alt" aria-hidden="true"></i> Purworejo
-      </a>
-    </div>
-    <div style="font-size: 0.4rem;">
-      © 2025 MHVC Shop, all rights reserved
-    </div>
+  <div class="footer-links">
+    <a href="https://youtube.com/@mhvcreatorshort" target="_blank">
+      <i class="bi bi-youtube" aria-hidden="true"></i> MH VCreator
+    </a>
+    <a href="https://wa.me/62882006160196" target="_blank">
+      <i class="bi bi-whatsapp" aria-hidden="true"></i> 0882-0061-60196
+    </a>
+    <a href="https://www.instagram.com/mhvcshop" target="_blank">
+      <i class="bi bi-instagram" aria-hidden="true"></i> mhvcshop
+    </a>
+    <a href="https://maps.app.goo.gl/YhEH3pSSW1uLbxt37" target="_blank">
+      <i class="bi bi-geo-alt" aria-hidden="true"></i> Purworejo
+    </a>
+  </div>
+  <div style="font-size: 0.4rem;">
+    © 2025 MHVC Shop, all rights reserved
+  </div>
   </footer>
 
   <script>
@@ -96,15 +121,13 @@
     const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
     if (product) {
-      let currentIndex = 0;
-      const accountInfo = document.getElementById('account-info');
+      let currentImageIndex = 0;
 
+      const accountInfo = document.getElementById('account-info');
       accountInfo.innerHTML = `
-        <div class="slider-container">
-          <div class="slider" id="slider">
-            ${product.images.map(img => <img src="${img}" alt="Produk">).join('')}
-          </div>
+        <div class="image-container">
           <button onclick="prevImage()" class="nav-button">❮</button>
+          <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}">
           <button onclick="nextImage()" class="nav-button">❯</button>
         </div>
         <h2>${product.title}</h2>
@@ -120,31 +143,51 @@
         <p style="white-space: pre;">${product.description}</p>
       `;
 
-      const slider = document.getElementById("slider");
+      // Fungsi untuk mengganti gambar dengan animasi
+      window.nextImage = function () {
+        const image = document.getElementById('product-image');
+        image.classList.add('fade-out');
 
-      function updateSliderPosition() {
-        slider.style.transform = translateX(${-currentIndex * 100}%);
-      }
+        setTimeout(() => {
+          if (currentImageIndex < product.images.length - 1) {
+            currentImageIndex++;
+          } else {
+            currentImageIndex = 0;
+          }
+
+          image.src = product.images[currentImageIndex];
+          image.classList.remove('fade-out');
+          image.classList.add('slide-in');
+
+          setTimeout(() => {
+            image.classList.remove('slide-in');
+          }, 500);
+        }, 500);
+      };
 
       window.prevImage = function () {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = product.images.length - 1;
-        }
-        updateSliderPosition();
+        const image = document.getElementById('product-image');
+        image.classList.add('fade-out');
+
+        setTimeout(() => {
+          if (currentImageIndex > 0) {
+            currentImageIndex--;
+          } else {
+            currentImageIndex = product.images.length - 1;
+          }
+
+          image.src = product.images[currentImageIndex];
+          image.classList.remove('fade-out');
+          image.classList.add('slide-in');
+
+          setTimeout(() => {
+            image.classList.remove('slide-in');
+          }, 500);
+        }, 500);
       };
 
-      window.nextImage = function () {
-        if (currentIndex < product.images.length - 1) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-        updateSliderPosition();
-      };
-
-      setInterval(() => {
+      // Fungsi untuk bergeser otomatis setiap 3 detik
+      setInterval(function() {
         nextImage();
       }, 3000);
     }
@@ -157,5 +200,6 @@
       window.location.href = "redirect.html";
     }
   </script>
+
 </body>
 </html>
