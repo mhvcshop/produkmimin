@@ -47,7 +47,7 @@ const products = [
   {
     id: 6,
     title: "TownHall 10 (Max)",
-    description: "Ganti Namaㅤ		: ON (gratis)<br>XP Levelㅤ		: 88",
+    description: "Ganti Nama		: ON (gratis)<br>XP Levelㅤ		: 88",
     price: "Rp 120.000",
     status: "Ready ✔",
     thumbnail: "TOWNHALL 10/th 10 max 01.jpg",
