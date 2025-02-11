@@ -117,6 +117,7 @@ footer {
 /*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
   header {
+    background-position: -4rem;
     height: 12rem;
   }
   
