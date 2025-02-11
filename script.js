@@ -44,6 +44,15 @@ const products = [
     thumbnail: "akun55-1.png",
     images: ["akun55-1.png", "akun55-2.png", "akun55-3.png"],
   },
+  {
+    id: 6,
+    title: "TownHall 10 (Max)",
+    description: "<table><tr><td>Ganti Nama</td><td>ㅤㅤ:ㅤ</td><td>ON (2000 Gems)</td></tr><tr><td>EXP Level</td><td>ㅤㅤ:ㅤ</td><td>160</td></tr><tr><td>Gems</td><td>ㅤㅤ:ㅤ</td><td>12.220+</td></tr><tr><td>Koin Liga</td><td>ㅤㅤ:ㅤ</td><td>70+</td></tr><tr><td>Koin Medal</td><td>ㅤㅤ:ㅤ</td><td>160+</td></tr></table>",
+    price: "Rp 120.000",
+    status: "Ready ✔",
+    thumbnail: "TOWNHALL 10/th 10 max 01.jpg",
+    images: ["TOWNHALL 10/th 10 max 01.jpg","TOWNHALL 10/th 10 max 02.jpg","TOWNHALL 10/th 10 max 03.jpg","TOWNHALL 10/th 10 max 04.jpg","TOWNHALL 10/th 10 max 05.jpg","TOWNHALL 10/th 10 max 06.jpg"],
+  },
 ];
 
 const productList = document.getElementById("product-list");
