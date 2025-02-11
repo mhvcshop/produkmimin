@@ -5,130 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Info Akun</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <img src="logo-mhvcshop1.png" class="logo-mhvcshop">
-    <br><strong>Informasi Akun</strong>
-  </header>
-
-  <main>
-    <div id="account-info" class="account-info">
-      <!-- Informasi akun akan ditampilkan di sini -->
-    </div>
-    <div class="buttons">
-      <button onclick="chatSeller()"><strong>Chat Penjual</strong></button>
-      <button onclick="buyNow()"><strong>Beli Sekarang</strong></button>
-    </div>
-  </main>
-
-  <footer>
-  <div class="footer-links">
-    <a href="https://youtube.com/@mhvcreatorshort" target="_blank">
-      <i class="bi bi-youtube" aria-hidden="true"></i> MH VCreator
-    </a>
-    <a href="https://wa.me/62882006160196" target="_blank">
-      <i class="bi bi-whatsapp" aria-hidden="true"></i> 0882-0061-60196
-    </a>
-    <a href="https://www.instagram.com/mhvcshop" target="_blank">
-      <i class="bi bi-instagram" aria-hidden="true"></i> mhvcshop
-    </a>
-    <a href="https://maps.app.goo.gl/YhEH3pSSW1uLbxt37" target="_blank">
-      <i class="bi bi-geo-alt" aria-hidden="true"></i> Purworejo
-    </a>
-  </div>
-  <div style="font-size: 0.4rem;">
-    © 2025 MHVC Shop, all rights reserved
-  </div>
-  </footer>
-
-  <script>
-    // Auto href ke beranda.html
-    if (!sessionStorage.getItem("akses_diperbolehkan")) {
-      window.location.href = "beranda.html";
-    }
-
-    // Mengambil data produk dari localStorage
-    const product = JSON.parse(localStorage.getItem('selectedProduct'));
-
-    if (product) {
-      let currentImageIndex = 0;
-
-      const accountInfo = document.getElementById('account-info');
-      accountInfo.innerHTML = `
-        <div class="image-container">
-          <button onclick="prevImage()" class="nav-button">❮</button>
-          <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}">
-          <button onclick="nextImage()" class="nav-button">❯</button>
-        </div>
-        <h2>${product.title}</h2>
-        <p>Status: ${product.status}</p><br>
-        <h3>${product.price}</h3><br><br><br>
-        <p><strong>Garansi (Direct)</strong></p>
-        <p>🟣 Bebas Dari HackBack</p>
-        <p>🟣 Jaminan Email Aman</p>
-        <p>🟣 Jaminan Akun Sesuai</p>
-        <p>🟣 Bimbingan Pengamanan</p>
-        <p>🟣 Ganti Akun Lain</p>
-        <br><br><p><strong>Deskripsi Produk</strong></p>
-        <p style="white-space: pre;">${product.description}</p>
-      `;
-
-      // Fungsi untuk mengganti gambar sebelumnya
-      window.prevImage = function () {
-        if (currentImageIndex > 0) {
-          currentImageIndex--;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
-
-      // Fungsi untuk mengganti gambar berikutnya
-      window.nextImage = function () {
-        if (currentImageIndex < product.images.length - 1) {
-          currentImageIndex++;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
-
-      // Fungsi untuk bergeser otomatis setiap 3 detik
-      setInterval(function() {
-        if (currentImageIndex < product.images.length - 1) {
-          currentImageIndex++;
-        } else {
-          currentImageIndex = 0; // Kembali ke gambar pertama setelah gambar terakhir
-        }
-        document.getElementById('product-image').src = product.images[currentImageIndex];
-      }, 3000); // Gambar bergeser setiap 3000ms (3 detik)
-    }
-
-    function chatSeller() {
-      window.location.href = "https://wa.me/62882006160196?text=Haloo%20min,%20mau%20tanya";
-    }
-
-    function buyNow() {
-      window.location.href = "redirect.html";
-    }
-  </script>
-
   <style>
-    .image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+    .slider-container {
       width: 100%;
       max-width: 300px;
+      overflow: hidden;
+      position: relative;
       margin: auto;
     }
 
-    .image-container img {
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider img {
       width: 100%;
+      flex-shrink: 0;
       max-width: 300px;
-      height: auto;
     }
 
     .nav-button {
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
@@ -149,6 +49,113 @@
       right: 10px;
     }
   </style>
+</head>
+<body>
+  <header>
+    <img src="logo-mhvcshop1.png" class="logo-mhvcshop">
+    <br><strong>Informasi Akun</strong>
+  </header>
 
+  <main>
+    <div id="account-info" class="account-info">
+      <!-- Informasi akun akan ditampilkan di sini -->
+    </div>
+    <div class="buttons">
+      <button onclick="chatSeller()"><strong>Chat Penjual</strong></button>
+      <button onclick="buyNow()"><strong>Beli Sekarang</strong></button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://youtube.com/@mhvcreatorshort" target="_blank">
+        <i class="bi bi-youtube" aria-hidden="true"></i> MH VCreator
+      </a>
+      <a href="https://wa.me/62882006160196" target="_blank">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> 0882-0061-60196
+      </a>
+      <a href="https://www.instagram.com/mhvcshop" target="_blank">
+        <i class="bi bi-instagram" aria-hidden="true"></i> mhvcshop
+      </a>
+      <a href="https://maps.app.goo.gl/YhEH3pSSW1uLbxt37" target="_blank">
+        <i class="bi bi-geo-alt" aria-hidden="true"></i> Purworejo
+      </a>
+    </div>
+    <div style="font-size: 0.4rem;">
+      © 2025 MHVC Shop, all rights reserved
+    </div>
+  </footer>
+
+  <script>
+    // Auto href ke beranda.html
+    if (!sessionStorage.getItem("akses_diperbolehkan")) {
+      window.location.href = "beranda.html";
+    }
+
+    // Mengambil data produk dari localStorage
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+    if (product) {
+      let currentIndex = 0;
+      const accountInfo = document.getElementById('account-info');
+
+      accountInfo.innerHTML = `
+        <div class="slider-container">
+          <div class="slider" id="slider">
+            ${product.images.map(img => <img src="${img}" alt="Produk">).join('')}
+          </div>
+          <button onclick="prevImage()" class="nav-button">❮</button>
+          <button onclick="nextImage()" class="nav-button">❯</button>
+        </div>
+        <h2>${product.title}</h2>
+        <p>Status: ${product.status}</p><br>
+        <h3>${product.price}</h3><br><br><br>
+        <p><strong>Garansi (Direct)</strong></p>
+        <p>🟣 Bebas Dari HackBack</p>
+        <p>🟣 Jaminan Email Aman</p>
+        <p>🟣 Jaminan Akun Sesuai</p>
+        <p>🟣 Bimbingan Pengamanan</p>
+        <p>🟣 Ganti Akun Lain</p>
+        <br><br><p><strong>Deskripsi Produk</strong></p>
+        <p style="white-space: pre;">${product.description}</p>
+      `;
+
+      const slider = document.getElementById("slider");
+
+      function updateSliderPosition() {
+        slider.style.transform = translateX(${-currentIndex * 100}%);
+      }
+
+      window.prevImage = function () {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = product.images.length - 1;
+        }
+        updateSliderPosition();
+      };
+
+      window.nextImage = function () {
+        if (currentIndex < product.images.length - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateSliderPosition();
+      };
+
+      setInterval(() => {
+        nextImage();
+      }, 3000);
+    }
+
+    function chatSeller() {
+      window.location.href = "https://wa.me/62882006160196?text=Haloo%20min,%20mau%20tanya";
+    }
+
+    function buyNow() {
+      window.location.href = "redirect.html";
+    }
+  </script>
 </body>
 </html>
