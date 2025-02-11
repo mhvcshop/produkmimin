@@ -43,112 +43,124 @@
   </footer>
 
   <script>
-    // Auto href ke beranda.html
-    if (!sessionStorage.getItem("akses_diperbolehkan")) {
-      window.location.href = "beranda.html";
-    }
+  // Auto href ke beranda.html
+  if (!sessionStorage.getItem("akses_diperbolehkan")) {
+    window.location.href = "beranda.html";
+  }
 
-    // Mengambil data produk dari localStorage
-    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+  // Mengambil data produk dari localStorage
+  const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
-    if (product) {
-      let currentImageIndex = 0;
+  if (product) {
+    let currentImageIndex = 0;
 
-      const accountInfo = document.getElementById('account-info');
-      accountInfo.innerHTML = `
-        <div class="image-container">
-          <button onclick="prevImage()" class="nav-button">❮</button>
-          <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}">
-          <button onclick="nextImage()" class="nav-button">❯</button>
+    const accountInfo = document.getElementById('account-info');
+    accountInfo.innerHTML = `
+      <div class="image-container">
+        <button onclick="prevImage()" class="nav-button">❮</button>
+        <div id="image-slider" class="image-slider">
+          ${product.images.map(imgSrc => <img src="${imgSrc}" alt="${product.title}">).join('')}
         </div>
-        <h2>${product.title}</h2>
-        <p>Status: ${product.status}</p><br>
-        <h3>${product.price}</h3><br><br><br>
-        <p><strong>Garansi (Direct)</strong></p>
-        <p>🟣 Bebas Dari HackBack</p>
-        <p>🟣 Jaminan Email Aman</p>
-        <p>🟣 Jaminan Akun Sesuai</p>
-        <p>🟣 Bimbingan Pengamanan</p>
-        <p>🟣 Ganti Akun Lain</p>
-        <br><br><p><strong>Deskripsi Produk</strong></p>
-        <p style="white-space: pre;">${product.description}</p>
-      `;
+        <button onclick="nextImage()" class="nav-button">❯</button>
+      </div>
+      <h2>${product.title}</h2>
+      <p>Status: ${product.status}</p><br>
+      <h3>${product.price}</h3><br><br><br>
+      <p><strong>Garansi (Direct)</strong></p>
+      <p>🟣 Bebas Dari HackBack</p>
+      <p>🟣 Jaminan Email Aman</p>
+      <p>🟣 Jaminan Akun Sesuai</p>
+      <p>🟣 Bimbingan Pengamanan</p>
+      <p>🟣 Ganti Akun Lain</p>
+      <br><br><p><strong>Deskripsi Produk</strong></p>
+      <p style="white-space: pre;">${product.description}</p>
+    `;
 
-      // Fungsi untuk mengganti gambar sebelumnya
-      window.prevImage = function () {
-        if (currentImageIndex > 0) {
-          currentImageIndex--;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
+    const imageSlider = document.getElementById('image-slider');
 
-      // Fungsi untuk mengganti gambar berikutnya
-      window.nextImage = function () {
-        if (currentImageIndex < product.images.length - 1) {
-          currentImageIndex++;
-          document.getElementById('product-image').src = product.images[currentImageIndex];
-        }
-      };
+    // Fungsi untuk mengganti gambar sebelumnya
+    window.prevImage = function () {
+      if (currentImageIndex > 0) {
+        currentImageIndex--;
+        imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+      }
+    };
 
-      // Fungsi untuk bergeser otomatis setiap 3 detik
-      setInterval(function() {
-        if (currentImageIndex < product.images.length - 1) {
-          currentImageIndex++;
-        } else {
-          currentImageIndex = 0; // Kembali ke gambar pertama setelah gambar terakhir
-        }
-        document.getElementById('product-image').src = product.images[currentImageIndex];
-      }, 3000); // Gambar bergeser setiap 3000ms (3 detik)
-    }
+    // Fungsi untuk mengganti gambar berikutnya
+    window.nextImage = function () {
+      if (currentImageIndex < product.images.length - 1) {
+        currentImageIndex++;
+        imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+      }
+    };
 
-    function chatSeller() {
-      window.location.href = "https://wa.me/62882006160196?text=Haloo%20min,%20mau%20tanya";
-    }
+    // Fungsi untuk bergeser otomatis setiap 3 detik
+    setInterval(function() {
+      if (currentImageIndex < product.images.length - 1) {
+        currentImageIndex++;
+      } else {
+        currentImageIndex = 0; // Kembali ke gambar pertama setelah gambar terakhir
+      }
+      imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+    }, 3000);
+  }
 
-    function buyNow() {
-      window.location.href = "redirect.html";
-    }
-  </script>
+  function chatSeller() {
+    window.location.href = "https://wa.me/62882006160196?text=Haloo%20min,%20mau%20tanya";
+  }
 
-  <style>
-    .image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      width: 100%;
-      max-width: 300px;
-      margin: auto;
-    }
+  function buyNow() {
+    window.location.href = "redirect.html";
+  }
+</script>
 
-    .image-container img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-    }
+<style>
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
 
-    .nav-button {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 18px;
-    }
+  .image-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
 
-    .nav-button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
+  .image-slider img {
+    width: 100%;
+    max-width: 300px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
 
-    .nav-button:first-child {
-      left: 10px;
-    }
+  .nav-button {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
 
-    .nav-button:last-child {
-      right: 10px;
-    }
-  </style>
+  .nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
 
+  .nav-button:first-child {
+    left: 10px;
+  }
+
+  .nav-button:last-child {
+    right: 10px;
+  }
+</style>
+  
 </body>
 </html>
