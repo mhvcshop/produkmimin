@@ -26,6 +26,10 @@ header {
   flex-shrink: 0;
 }
 
+.logo-mhvcshop {
+  position: absolute; top: 0.5rem; left: 0.5rem; height: 4%; width: 25.60%;
+}
+
 /*███████████████ FOOTER ███████████████*/
 footer {
   background-color: #9C28B1;
@@ -117,10 +121,11 @@ footer {
 /*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
   header {
-    background-position: center -6rem;
-    height: 8rem;
+    background-position: center -6rem; height: 8rem;
   }
-  
+  .logo-mhvcshop {
+  height: 10%; width: 25.60%;
+}
   footer {
   padding: 1.5rem 1rem;
   }
