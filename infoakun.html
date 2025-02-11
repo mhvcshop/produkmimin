@@ -5,75 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Info Akun</title>
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      width: 100%;
-      max-width: 300px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .image-container img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      position: absolute;
-      animation: slideIn 0.5s ease-in-out;
-    }
-
-    .image-container img.fade-out {
-      animation: slideOut 0.5s ease-in-out;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideOut {
-      from {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-    }
-
-    .nav-button {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    .nav-button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    .nav-button:first-child {
-      left: 10px;
-    }
-
-    .nav-button:last-child {
-      right: 10px;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -143,53 +74,31 @@
         <p style="white-space: pre;">${product.description}</p>
       `;
 
-      // Fungsi untuk mengganti gambar dengan animasi
-      window.nextImage = function () {
-        const image = document.getElementById('product-image');
-        image.classList.add('fade-out');
-
-        setTimeout(() => {
-          if (currentImageIndex < product.images.length - 1) {
-            currentImageIndex++;
-          } else {
-            currentImageIndex = 0;
-          }
-
-          image.src = product.images[currentImageIndex];
-          image.classList.remove('fade-out');
-          image.classList.add('slide-in');
-
-          setTimeout(() => {
-            image.classList.remove('slide-in');
-          }, 500);
-        }, 500);
+      // Fungsi untuk mengganti gambar sebelumnya
+      window.prevImage = function () {
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          document.getElementById('product-image').src = product.images[currentImageIndex];
+        }
       };
 
-      window.prevImage = function () {
-        const image = document.getElementById('product-image');
-        image.classList.add('fade-out');
-
-        setTimeout(() => {
-          if (currentImageIndex > 0) {
-            currentImageIndex--;
-          } else {
-            currentImageIndex = product.images.length - 1;
-          }
-
-          image.src = product.images[currentImageIndex];
-          image.classList.remove('fade-out');
-          image.classList.add('slide-in');
-
-          setTimeout(() => {
-            image.classList.remove('slide-in');
-          }, 500);
-        }, 500);
+      // Fungsi untuk mengganti gambar berikutnya
+      window.nextImage = function () {
+        if (currentImageIndex < product.images.length - 1) {
+          currentImageIndex++;
+          document.getElementById('product-image').src = product.images[currentImageIndex];
+        }
       };
 
       // Fungsi untuk bergeser otomatis setiap 3 detik
       setInterval(function() {
-        nextImage();
-      }, 3000);
+        if (currentImageIndex < product.images.length - 1) {
+          currentImageIndex++;
+        } else {
+          currentImageIndex = 0; // Kembali ke gambar pertama setelah gambar terakhir
+        }
+        document.getElementById('product-image').src = product.images[currentImageIndex];
+      }, 10000); // Gambar bergeser setiap 3000ms (3 detik)
     }
 
     function chatSeller() {
@@ -200,6 +109,46 @@
       window.location.href = "redirect.html";
     }
   </script>
+
+  <style>
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .nav-button {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-button:first-child {
+      left: 10px;
+    }
+
+    .nav-button:last-child {
+      right: 10px;
+    }
+  </style>
 
 </body>
 </html>
