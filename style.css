@@ -121,10 +121,10 @@ footer {
 /*███████████████ KONTEN DALAM KONTAINER TABLET DAN DEKSTOP ███████████████*/
 @media (min-width: 768px) {
         header {
-        background-position: center -6rem; height: 8rem;
+        background-position: center -6rem; height: 8rem; font-size: 2rem;
         }
         .logo-mhvcshop {
-        position: absolute; top: 0.7rem; left: 0.7rem; height: 13.8%; width: 23%;
+        position: absolute; top: 0.5rem; left: 0.5rem; height: 13.8%; width: 23%;
         }
   
   footer {
