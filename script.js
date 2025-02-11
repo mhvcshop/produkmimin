@@ -47,7 +47,7 @@ const products = [
   {
     id: 6,
     title: "TownHall 10 (Max)",
-    description: "Ganti Nama		: ON (gratis)<br>XP Levelㅤ		: 88",
+    description: "Ganti Nama		: ON (Gratis)<br>EXP Levelㅤ		: 88<br>Gems		: 4600+<br>Koin Liga		: -<br>Koin Medal		: 250+<br><br>Raja Barbar		: Level 38<br>Ratu Pemanah		: Level 40<br>Pangeran Minion		: Level 20<br><br>𝗟𝗮𝘁𝗮𝗿		: ON<br>🟣 Latar Pixel<br><br>𝗦𝗸𝗶𝗻 𝗛𝗲𝗿𝗼		: OFF<br>",
     price: "Rp 120.000",
     status: "Ready ✔",
     thumbnail: "TOWNHALL 10/th 10 max 01.jpg",
