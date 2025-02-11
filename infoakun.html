@@ -42,7 +42,51 @@
   </div>
   </footer>
 
-  <script>
+  <style>
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    position: absolute;
+    transition: transform 0.5s ease-in-out; /* Animasi geser */
+  }
+
+  .nav-button {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+  }
+
+  .nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-button:first-child {
+    left: 10px;
+  }
+
+  .nav-button:last-child {
+    right: 10px;
+  }
+</style>
+
+<script>
   // Auto href ke beranda.html
   if (!sessionStorage.getItem("akses_diperbolehkan")) {
     window.location.href = "beranda.html";
@@ -53,14 +97,11 @@
 
   if (product) {
     let currentImageIndex = 0;
-
     const accountInfo = document.getElementById('account-info');
     accountInfo.innerHTML = `
       <div class="image-container">
         <button onclick="prevImage()" class="nav-button">❮</button>
-        <div id="image-slider" class="image-slider">
-          ${product.images.map(imgSrc => <img src="${imgSrc}" alt="${product.title}">).join('')}
-        </div>
+        <img id="product-image" src="${product.images[currentImageIndex]}" alt="${product.title}" style="transform: translateX(0);">
         <button onclick="nextImage()" class="nav-button">❯</button>
       </div>
       <h2>${product.title}</h2>
@@ -76,13 +117,22 @@
       <p style="white-space: pre;">${product.description}</p>
     `;
 
-    const imageSlider = document.getElementById('image-slider');
+    const productImage = document.getElementById('product-image');
+
+    function updateImage(index, direction) {
+      const offset = direction === 'next' ? 100 : -100;
+      productImage.style.transform = translateX(${offset}%);
+      setTimeout(() => {
+        productImage.src = product.images[index];
+        productImage.style.transform = translateX(0);
+      }, 300);
+    }
 
     // Fungsi untuk mengganti gambar sebelumnya
     window.prevImage = function () {
       if (currentImageIndex > 0) {
         currentImageIndex--;
-        imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+        updateImage(currentImageIndex, 'prev');
       }
     };
 
@@ -90,7 +140,7 @@
     window.nextImage = function () {
       if (currentImageIndex < product.images.length - 1) {
         currentImageIndex++;
-        imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+        updateImage(currentImageIndex, 'next');
       }
     };
 
@@ -99,68 +149,12 @@
       if (currentImageIndex < product.images.length - 1) {
         currentImageIndex++;
       } else {
-        currentImageIndex = 0; // Kembali ke gambar pertama setelah gambar terakhir
+        currentImageIndex = 0;
       }
-      imageSlider.style.transform = translateX(-${currentImageIndex * 100}%);
+      updateImage(currentImageIndex, 'next');
     }, 3000);
   }
-
-  function chatSeller() {
-    window.location.href = "https://wa.me/62882006160196?text=Haloo%20min,%20mau%20tanya";
-  }
-
-  function buyNow() {
-    window.location.href = "redirect.html";
-  }
 </script>
-
-<style>
-  .image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
-    overflow: hidden;
-  }
-
-  .image-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-  }
-
-  .image-slider img {
-    width: 100%;
-    max-width: 300px;
-    flex-shrink: 0;
-    object-fit: cover;
-  }
-
-  .nav-button {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-
-  .nav-button:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .nav-button:first-child {
-    left: 10px;
-  }
-
-  .nav-button:last-child {
-    right: 10px;
-  }
-</style>
   
 </body>
 </html>
