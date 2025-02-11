@@ -47,7 +47,7 @@ const products = [
   {
     id: 6,
     title: "TownHall 10 (Max)",
-    description: "<table><tr><td>Ganti Nama</td><td>ㅤㅤ:ㅤ</td><td>ON (2000 Gems)</td></tr><tr><td>EXP Level</td><td>ㅤㅤ:ㅤ</td><td>160</td></tr><tr><td>Gems</td><td>ㅤㅤ:ㅤ</td><td>12.220+</td></tr><tr><td>Koin Liga</td><td>ㅤㅤ:ㅤ</td><td>70+</td></tr><tr><td>Koin Medal</td><td>ㅤㅤ:ㅤ</td><td>160+</td></tr><br><tr><td>𝗥𝗮𝗷𝗮 𝗕𝗮𝗿𝗯𝗮𝗿</td><td>ㅤㅤ:ㅤ</td><td><strong>𝗟𝗲𝘃𝗲𝗹 𝟯𝟴</strong></td></tr><tr><td><strong>Ratu Pemanah</strong></td><td><strong>ㅤㅤ:ㅤ</strong></td><td><strong>Level 40</strong></td></tr><tr><td><strong>Pangeran Minion</td><td>ㅤㅤ:ㅤ</td><td>Level 20</strong></td></tr></table>",
+    description: "<table><tr><td>Ganti Nama</td><td>ㅤㅤ:ㅤ</td><td>ON (2000 Gems)</td></tr><tr><td>EXP Level</td><td>ㅤㅤ:ㅤ</td><td>160</td></tr><tr><td>Gems</td><td>ㅤㅤ:ㅤ</td><td>12.220+</td></tr><tr><td>Koin Liga</td><td>ㅤㅤ:ㅤ</td><td>70+</td></tr><tr><td>Koin Medal</td><td>ㅤㅤ:ㅤ</td><td>160+</td></tr><tr></tr><tr><td>𝗥𝗮𝗷𝗮 𝗕𝗮𝗿𝗯𝗮𝗿</td><td>ㅤㅤ:ㅤ</td><td>𝗟𝗲𝘃𝗲𝗹 𝟯𝟴</td></tr><tr><td>Ratu Pemanah</td><td>ㅤㅤ:ㅤ</td><td>Level 40</td></tr><tr><td><strong>Pangeran Minion</td><td>ㅤㅤ:ㅤ</td><td>Level 20</strong></td></tr></table>",
     price: "Rp 120.000",
     status: "Ready ✔",
     thumbnail: "TOWNHALL 10/th 10 max 01.jpg",
